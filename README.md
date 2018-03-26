@@ -1,2 +1,2 @@
 # Django
-Djangotest
+Django project 
