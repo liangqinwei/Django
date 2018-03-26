@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片预加载</title>
+    <style>
+        .box{
+            text-align: center;
+        }
+        .btn{
+            display: inline-block;
+            height: 30px;
+            line-height:30px;
+            border: 1px solid #cccccc;
+            background: #ffffff;
+            padding: 0 10px;
+            margin-right: 50px;
+            color: #333333;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div class="box">
+    <img src="/static/imgs/A.jpg">
+    <P>
+        <a href="javascript:" class="btn" data-control="prev">上一页</a>
+        <a href="javascript:" class="btn" data-control="next">下一页</a>
+    </P>
+
+</div>
+<script src="/static/plugin/jquery-3.2.1.min.js"></script>
+<script>
+        var imgs=[
+            '/static/imgs/A.jpg',
+            '/static/imgs/B.jpg',
+            '/static/imgs/C.jpg',
+            '/static/imgs/D.jpg'
+        ];
+        var index=0;
+        len=imgs.length;
+        $('.btn').on('click',function () {
+            if('prev'===$(this).data('control')){
+                Math.max(0,--index);
+            }else {
+                Math.min(len-1,++index);
+            }
+            document.title=(index+1)+"/"+len;
+            $('img').attr('src',imgs[index])
+        })
+    </script>
+
+</body>
+</html>

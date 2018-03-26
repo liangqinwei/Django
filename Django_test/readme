@@ -1,0 +1,7 @@
+
+二，创建model
+python manage.py makemigrations wechat(项目名)
+python manage.py sqlmigrate wechat 0001
+再输入命令：python manage.py migrate
+创建admin管理员
+python manage.py createsuperuser
